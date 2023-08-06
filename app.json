@@ -4,7 +4,8 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "sneakly",
-    "slug": "sneakly"
+    "name": "Shouty",
+    "slug": "shouty",
+    "plugins": ["expo-router"]
   }
 }

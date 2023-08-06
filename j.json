@@ -1,0 +1,74 @@
+[
+  {
+    "to": "John Doe",
+    "deviceName": "Android",
+    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "postDate": "07/08/2023",
+    "isPremium": false,
+    "from": "Jane Johnson"
+  },
+  {
+    "to": "Emily Brown",
+    "deviceName": "Samsung",
+    "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+    "postDate": "07/08/2023",
+    "isPremium": true,
+    "from": "David Davis"
+  },
+  {
+    "to": "Alex Green",
+    "deviceName": "OnePlus",
+    "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    "postDate": "07/08/2023",
+    "isPremium": false,
+    "from": "Olivia White"
+  },
+  {
+    "to": "Sophia Martinez",
+    "deviceName": "LG",
+    "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+    "postDate": "07/08/2023",
+    "isPremium": true,
+    "from": "William Miller"
+  },
+  {
+    "to": "Ethan Wilson",
+    "deviceName": "Sony",
+    "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+    "postDate": "07/08/2023",
+    "isPremium": false,
+    "from": "Ava Anderson"
+  },
+  {
+    "to": "Isabella Taylor",
+    "deviceName": "Huawei",
+    "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.",
+    "postDate": "07/08/2023",
+    "isPremium": true,
+    "from": "James Wilson"
+  },
+  {
+    "to": "Michael Johnson",
+    "deviceName": "Google Pixel",
+    "content": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.",
+    "postDate": "07/08/2023",
+    "isPremium": false,
+    "from": "Emma Garcia"
+  },
+  {
+    "to": "Liam Thomas",
+    "deviceName": "Xiaomi",
+    "content": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+    "postDate": "07/08/2023",
+    "isPremium": true,
+    "from": "Noah Brown"
+  },
+  {
+    "to": "Aria Martinez",
+    "deviceName": "Motorola",
+    "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    "postDate": "07/08/2023",
+    "isPremium": false,
+    "from": "Liam Johnson"
+  }
+]
