@@ -1,37 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
-  StyleSheet,
   ActivityIndicator,
   FlatList,
-  Text,
   View,
   RefreshControl,
-  Touchable,
-  TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
-import { Button } from "react-native-web";
 import PostCard from "../Component/PostCard";
+import useMainStore, { usePostStore } from "../store/mainStore";
 
 const Home = () => {
-  const [refreshing, setRefreshing] = useState(true);
-  const [dataSource, setDataSource] = useState([]);
+  const [flatListIndex, setFlatListIndex] = useState(0);
+  const flatListRef = useRef(null);
+  const { shouts, fetchShouts, getShoutsLength, isFetchingShouts } =
+    usePostStore((state) => state);
+
+  const { isInitiallyLoaded, setIsInitiallyLoaded } = useMainStore(
+    (state) => state
+  );
 
   useEffect(() => {
-    GetData();
+    if (!isInitiallyLoaded) {
+      fetchShouts();
+      getShoutsLength();
+      setIsInitiallyLoaded(true);
+    }
   }, []);
-
-  const GetData = () => {
-    fetch("https://mocki.io/v1/9b50efbd-e848-48cc-8e87-e04599ec89a7")
-      .then((response) => response.json())
-      .then((responseJson) => {
-        setRefreshing(false);
-        setDataSource(responseJson);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const ListViewItemSeparator = () => {
     return (
@@ -45,11 +38,12 @@ const Home = () => {
   };
 
   const onRefresh = () => {
-    GetData();
+    fetchShouts();
+    getShoutsLength();
     console.log("refresh");
   };
 
-  if (refreshing) {
+  if (isFetchingShouts) {
     return (
       <View className="flex-1 justify-center">
         <ActivityIndicator />
@@ -57,16 +51,27 @@ const Home = () => {
     );
   }
 
+  const Scroll = (index) => {
+    if (flatListRef.current) {
+      flatListRef.current.scrollToIndex({
+        index,
+        animated: true,
+      });
+    }
+  };
+
   return (
     <>
       <FlatList
+        initialScrollIndex={flatListIndex}
         className="bg-gray-100"
-        data={dataSource}
+        ref={flatListRef}
+        data={shouts}
         ItemSeparatorComponent={ListViewItemSeparator}
         enableEmptySections={true}
         renderItem={({ item }) => <PostCard {...item} />}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          <RefreshControl refreshing={isFetchingShouts} onRefresh={onRefresh} />
         }
       />
     </>

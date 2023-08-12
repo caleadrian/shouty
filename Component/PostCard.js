@@ -1,12 +1,10 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import * as Device from "expo-device";
-import Moment from "react-moment";
-import { router, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
+import Icon from "react-native-vector-icons/Octicons";
 
 const PostCard = (item) => {
-  const date = new Date();
   const router = useRouter();
 
   const postOnClick = () => {
@@ -19,24 +17,29 @@ const PostCard = (item) => {
     <TouchableOpacity
       onPress={() => postOnClick()}
       activeOpacity={true}
-      className="bg-white m-4 p-5 rounded-md min-h-[200px] shadow-sm overflow-hidden flex justify-between"
+      className="bg-white m-4 p-5 rounded-md min-h-[170px] shadow-sm overflow-hidden flex justify-between"
     >
       <View className="">
-        <Text className="font-medium text-xl">{item.content}</Text>
+        <Text className="font-base text-xl">{item.content}</Text>
       </View>
 
-      <View className="flex-row gap-x-5  mt-3">
-        <TouchableOpacity className="flex-row">
-          <Text className="mr-1">Like</Text>
-          <Text>1k</Text>
+      <View className="flex-row gap-x-5 mt-3 items-center">
+        <TouchableOpacity className="flex-row items-center">
+          <Icon name="heart" size={18}></Icon>
+          <Text className="ml-1.5">Like</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row">
-          <Text>Share</Text>
+        <TouchableOpacity className="flex-row items-center">
+          <Icon name="bookmark" size={18}></Icon>
+          <Text className="ml-1.5 ">Save</Text>
         </TouchableOpacity>
-        <Text>{item.deviceName}</Text>
-        <Moment element={Text} fromNow>
-          {date}
-        </Moment>
+        <TouchableOpacity className="flex-row items-center">
+          <Icon name="share" size={18}></Icon>
+          <Text className="ml-1.5 ">Share</Text>
+        </TouchableOpacity>
+        <Text>from {item.device}</Text>
+        {/* <Moment element={Text} fromNow>
+          {date} {Device.modelName}
+        </Moment> */}
       </View>
     </TouchableOpacity>
   );
